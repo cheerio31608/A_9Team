@@ -28,9 +28,4 @@ public class Board : MonoBehaviour
         GameManager.Instance.cardCount = arr.Length;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
