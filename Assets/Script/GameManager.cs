@@ -64,6 +64,7 @@ public class GameManager : MonoBehaviour
     {
         time -= Time.deltaTime;
         timeTxt.text = time.ToString("N2");
+       
 
         if (time <= warning_time) // 경고
         {
@@ -102,6 +103,7 @@ public class GameManager : MonoBehaviour
 
     public void Matched()
     {
+        CancelInvoke();
         // 김신우 - 이미지에 따른 조원 이름 표시, 사운드 추가
         if (firstCard.idx == secondCard.idx)
         {
@@ -132,18 +134,17 @@ public class GameManager : MonoBehaviour
                 endPanel.SetActive(true);
                 EndPanel();
                 audioSource.PlayOneShot(finish);
-
             }
         }
         else
         {
             nameTxt.text = "실패!";
             audioSource.PlayOneShot(miss);
+            time -= 1;
 
             firstCard.CloseCard();
             secondCard.CloseCard();
         }
-
         firstCard = null;
         secondCard = null;
         MatchCount++;
@@ -156,7 +157,6 @@ public class GameManager : MonoBehaviour
         CountTxt.text = MatchCount.ToString();
 
         ScoreTxt.text = Score.ToString();
-
 
     }
 }
