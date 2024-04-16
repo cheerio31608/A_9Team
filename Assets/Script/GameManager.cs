@@ -23,8 +23,8 @@ public class GameManager : MonoBehaviour
     public AudioClip fail;
 
     public int cardCount = 0;
-    float time = 30.0f;
 
+    float time = 30.0f;
     int MatchCount = 0;
 
     int time_score = 0;
@@ -132,6 +132,7 @@ public class GameManager : MonoBehaviour
     public void Matched()
     {
         // 김신우 - 이미지에 따른 조원 이름 표시, 사운드 추가
+        // 스테이지별로 인원을 나눴기 때문에 해당 부분 코드 수정이 필요합니다!! (지원)
         if (firstCard.idx == secondCard.idx)
         {
             if (firstCard.idx < 2)
