@@ -34,8 +34,10 @@ public class Card : MonoBehaviour
     {
         audioSource.PlayOneShot(clip);
         anim.SetBool("isOpen", true);
-        front.SetActive(true);
-        back.SetActive(false);
+
+        // Flip 애니메이션에서 SetActive 설정해서 따로 필요 없음
+        //front.SetActive(true);
+        //back.SetActive(false);
 
         if (GameManager.Instance.firstCard == null)
         {
@@ -70,7 +72,9 @@ public class Card : MonoBehaviour
             matched_fail = true;
             background.color = new Color(135 / 255f, 135 / 255f, 135 / 255f, 1f);
         }
-        front.SetActive(false);
-        back.SetActive(true);
+
+        // flip 애니메이션에서 SetActive 설정해서 따로 필요 없음
+        // front.SetActive(false);
+        // back.SetActive(true);
     }
 }
