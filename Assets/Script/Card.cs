@@ -24,12 +24,6 @@ public class Card : MonoBehaviour
         background = back.GetComponentInChildren<SpriteRenderer>(); // 뒷면 색상 변경을 위해서
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Setting(int number)
     {
         idx = number;
