@@ -751,7 +751,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uB0A8\uC740 \uC2DC\uAC04"
+  m_Text: "\uCD5C\uB2E8 \uAE30\uB85D"
 --- !u!222 &798399276
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1767,9 +1767,13 @@ MonoBehaviour:
   secondCard: {fileID: 0}
   timeTxt: {fileID: 1795289085}
   nameTxt: {fileID: 1658036070}
+<<<<<<< Updated upstream
   bestTimeTxt: {fileID: 0}
   BestScoreTxt: {fileID: 1544483431}
   BestTimeScoreTxt: {fileID: 0}
+=======
+  bestTimeTxt: {fileID: 798399275}
+>>>>>>> Stashed changes
   endTxt: {fileID: 1848476827}
   audioSource: {fileID: 0}
   clip: {fileID: 8300000, guid: c5e5e4c0884fd824c831963d33d3a2f7, type: 3}
