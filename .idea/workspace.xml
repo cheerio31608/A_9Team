@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="eeca0ac6-5cc4-4702-afdc-24f37c9f94e0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Fonts/Cafe24Ohsquare.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Fonts/Cafe24Ohsquare.ttf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/Background.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/Background/Select_Background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/Background/Stage1_BackGround.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/Background/Stage2_BackGround.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/Background/Stage3_BackGround.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/Background/Stage4_BackGround.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/Background/Stage4_BackGround.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/Background/Start_Background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/Background/Start_Background.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/Buttons.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/Buttons/Button 01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/Buttons/Button 01.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/Buttons/Button 02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/Buttons/Button 02.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/Buttons/Button 03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/Buttons/Button 03.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/Buttons/Button 04.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/Buttons/Button 04.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/Buttons/Button 05.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/Buttons/Button 05.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/card.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/card/Stage1_CardBack.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/card/Stage1_CardBack.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/card/Stage2_CardBack.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/card/Stage2_CardBack.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/card/Stage3_CardBack.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/card/Stage3_CardBack.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/card/Stage4_CardBack.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/card/Stage4_CardBack.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Card2 JW.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Card2 JW.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Card3 SW.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Card3 SW.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Card4 LH.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Card4 LH.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/JW.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/JW/JW_0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/JW/JW_0.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/JW/JW_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/JW/JW_1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/JW/JW_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/JW/JW_2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/JW/JW_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/JW/JW_3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/JW/JW_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/JW/JW_4.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/JW/JW_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/JW/JW_5.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/JW/JW_6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/JW/JW_6.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/JW/JW_7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/JW/JW_7.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/JW/JW_8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/JW/JW_8.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/JW/JW_9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/JW/JW_9.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/LH.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/LH/LH_0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/LH/LH_0.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/LH/LH_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/LH/LH_1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/LH/LH_10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/LH/LH_10.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/LH/LH_11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/LH/LH_11.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/LH/LH_12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/LH/LH_12.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/LH/LH_13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/LH/LH_13.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/LH/LH_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/LH/LH_2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/LH/LH_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/LH/LH_3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/LH/LH_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/LH/LH_4.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/LH/LH_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/LH/LH_5.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/LH/LH_6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/LH/LH_6.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/LH/LH_7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/LH/LH_7.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/LH/LH_8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/LH/LH_8.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/LH/LH_9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/LH/LH_9.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/MW.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/MW/MW_0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/MW/MW_0.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/MW/MW_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/MW/MW_1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/MW/MW_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/MW/MW_2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/MW/MW_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/MW/MW_3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/MW/MW_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/MW/MW_4.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/MW/MW_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/MW/MW_5.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/MW/MW_6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/MW/MW_6.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/MW/MW_7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/MW/MW_7.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SW.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SW/SW_0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SW/SW_0.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SW/SW_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SW/SW_1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SW/SW_10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SW/SW_10.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SW/SW_11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SW/SW_11.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SW/SW_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SW/SW_2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SW/SW_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SW/SW_3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SW/SW_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SW/SW_4.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SW/SW_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SW/SW_5.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SW/SW_6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SW/SW_6.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SW/SW_7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SW/SW_7.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SW/SW_8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SW/SW_8.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SW/SW_9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SW/SW_9.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/SelectScene.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Stage01Scene.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Stage02Scene.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Stage02Scene.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Stage03Scene.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Stage04Scene.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Stage04Scene.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/LetterSpacing.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/LetterSpacing.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/rtan0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/rtan0.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/Background/Stage1_BackGround.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/rtan1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/rtan1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/Background/Stage3_BackGround.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/rtan2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/rtan2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/Background/Stage2_BackGround.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/rtan3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/rtan3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/Background/Select_Background.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/rtan4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/rtan4.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/rtan5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/rtan5.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/rtan6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/rtan6.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/rtan7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/rtan7.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Card.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Card1 MW.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Card.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Card1 MW.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/rtan0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/rtan0.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/rtan1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/rtan1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/rtan2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/rtan2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/rtan3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/rtan3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/rtan4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/rtan4.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/rtan5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/rtan5.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/rtan6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/rtan6.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/rtan7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/rtan7.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Stage03Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SelectScene.unity.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Stage01Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Stage01Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/StartScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StartScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Board.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Board.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Card.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Card.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/RetryButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/RetryButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2fBaByAatVFXDjh9EaVdzqvHS9y" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cidr.known.project.marker": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="eeca0ac6-5cc4-4702-afdc-24f37c9f94e0" name="Changes" comment="" />
+      <created>1713276793716</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713276793716</updated>
+    </task>
+    <servers />
+  </component>
+</project>
