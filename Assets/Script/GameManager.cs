@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     // 김신우 - timeTxt, nameTxt 추가
     public Text timeTxt;
     public Text nameTxt;
+    // 정이현 - bestTimeTxt 추가
+    public Text bestTimeTxt;
     public GameObject endTxt;
     public AudioSource audioSource;
     public AudioClip clip;
@@ -57,6 +59,25 @@ public class GameManager : MonoBehaviour
 
         audioSource_tictok = GetComponent<AudioSource>();
         audioSource_tictok.clip = clip_tictok;
+
+        // 정이현 - 저장된 최단 기록 불러오기
+        float bestTime = PlayerPrefs.GetFloat("BestTime", float.MaxValue);
+
+        // UI에 최단 기록 표시
+        bestTimeTxt.text = "Best Time: " + bestTime.ToString("N2");
+
+        // 현재 기록이 최단 기록보다 빠른지 비교 
+        if (time < bestTime) // time이 bestTime보다 작으면 최단 기록 발생
+        {
+            // 현재 기록이 최단 기록보다 빠르다면 최단 기록 업데이트
+            bestTime = time;
+
+            // 최단 기록 저장
+            PlayerPrefs.SetFloat("BestTime", bestTime);
+
+            // UI에 최단 기록 표시
+            timeTxt.text = "Best Time: " + bestTime.ToString("N2");
+        }
     }
 
     // Update is called once per frame
