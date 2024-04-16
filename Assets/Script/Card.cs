@@ -22,12 +22,32 @@ public class Card : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
 
         background = back.GetComponentInChildren<SpriteRenderer>(); // 뒷면 색상 변경을 위해서
+
     }
 
     public void Setting(int number)
     {
         idx = number;
-        frontImage.sprite = Resources.Load<Sprite>($"rtan{idx}");
+        string objectName = gameObject.name; // 현재 오브젝트 이름을 받아와서 확인할거에용
+        //Debug.Log(objectName);
+
+        if (objectName == "Card1 MW(Clone)") // 만약 오브젝트 이름이 MW 라면
+        {
+            //Debug.Log(" 민우님 카드 찾음");
+            frontImage.sprite = Resources.Load<Sprite>($"MW/MW_{idx}"); //MW 폴더 내부에 있는 mw_idx 파일을 프론트로 설정
+        }
+        else if (objectName == "Card2 JW(Clone)")
+        {
+            frontImage.sprite = Resources.Load<Sprite>($"JW/JW_{idx}");
+        }
+        else if (objectName == "Card3 SW(Clone)")
+        {
+            frontImage.sprite = Resources.Load<Sprite>($"SW/SW_{idx}");
+        }
+        else if (objectName == "Card4 LH(Clone)")
+        {
+            frontImage.sprite = Resources.Load<Sprite>($"LH/LH_{idx}");
+        }
     }
 
     public void OpenCard()
