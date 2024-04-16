@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
             {
                 float t = (time) / 0.6f;
                 float scaleValue = Mathf.Sin(t * Mathf.PI); // 0에서 1로, 그리고 다시 0으로 변화
-                timeTxt.transform.localScale = Vector3.Lerp(new Vector3(1f, 1f, 1f), new Vector3(1.5f, 1.5f, 1f), scaleValue);
+                timeTxt.transform.localScale = Vector3.Lerp(Vector3.one, new Vector3(1.5f, 1.5f, 1f), scaleValue);
                 timeTxt.color = Color.Lerp(Color.white, Color.red, scaleValue);
             }
         }
@@ -87,6 +87,9 @@ public class GameManager : MonoBehaviour
         if (time < 0.0f)
         {
             // 김신우 - fail 사운드 추가
+            time = 0f;
+            timeTxt.text = time.ToString("N2");
+
             endPanel.SetActive(true);
             audioSource_tictok.Stop(); // tictok 오디오 종료
             EndPanel();

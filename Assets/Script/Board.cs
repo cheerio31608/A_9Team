@@ -16,7 +16,7 @@ public class Board : MonoBehaviour
 
         for (int i=0; i<16; i++)
         {
-            GameObject go = Instantiate(card);
+            GameObject go = Instantiate(card,this.transform);
             //go.transform.parent = cards;
 
             float x = (i % 4) * 1.4f - 2.1f;
