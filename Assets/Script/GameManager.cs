@@ -19,9 +19,15 @@ public class GameManager : MonoBehaviour
     public AudioClip miss;
     public AudioClip finish;
     public AudioClip fail;
+
     public int cardCount = 0;
     float time = 30.0f;
+
     int MatchCount = 0;
+
+    int time_score = 0;
+    int match_score = 0;
+    int match_cnt_score = 0;
     int Score = 0;
 
     public GameObject endPanel;
@@ -57,6 +63,8 @@ public class GameManager : MonoBehaviour
 
         audioSource_tictok = GetComponent<AudioSource>();
         audioSource_tictok.clip = clip_tictok;
+
+        Score = 0;
     }
 
     // Update is called once per frame
@@ -97,7 +105,8 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0.0f;
         }
 
-        Score = ((int)time * 1000) - (MatchCount * 50);
+
+
     }
 
     public void Matched()
@@ -105,7 +114,7 @@ public class GameManager : MonoBehaviour
         // 김신우 - 이미지에 따른 조원 이름 표시, 사운드 추가
         if (firstCard.idx == secondCard.idx)
         {
-            if(firstCard.idx < 2)
+            if (firstCard.idx < 2)
             {
                 nameTxt.text = "김민우";
             }
@@ -117,7 +126,7 @@ public class GameManager : MonoBehaviour
             {
                 nameTxt.text = "정이현";
             }
-            else 
+            else
             {
                 nameTxt.text = "최지원";
             }
@@ -126,7 +135,11 @@ public class GameManager : MonoBehaviour
             firstCard.DestroyCard();
             secondCard.DestroyCard();
             cardCount -= 2;
-            if(cardCount == 0)
+
+            // 매칭 성공 시 점수
+            match_score += 2;
+
+            if (cardCount == 0)
             {
                 Time.timeScale = 0.0f;
                 endPanel.SetActive(true);
@@ -152,6 +165,42 @@ public class GameManager : MonoBehaviour
 
     void EndPanel()
     {
+        // 시간 점수
+        if (time >= 15.0f)
+            time_score = 50;
+        else if (time >= 12.0f)
+            time_score = 45;
+        else if (time >= 10.0f)
+            time_score = 40;
+        else if (time > 0.0f)
+            time_score = 30;
+        else
+            time_score = 0;
+
+        // 매칭 시도 횟수 점수
+        if (cardCount == 0)
+        {
+            if (MatchCount <= 16)
+                match_cnt_score = 34;
+
+            else if (MatchCount <= 20)
+                match_cnt_score = 30;
+
+            else if (MatchCount <= 24)
+                match_cnt_score = 26;
+
+            else if (MatchCount <= 28)
+                match_cnt_score = 22;
+
+            else if (MatchCount <= 32)
+                match_cnt_score = 18;
+            else
+                match_cnt_score = 0;
+        }
+
+        // 점수 계산
+        Score = time_score + match_cnt_score + match_score;
+
         EndTimeTxt.text = time.ToString("N2");
         CountTxt.text = MatchCount.ToString();
 
