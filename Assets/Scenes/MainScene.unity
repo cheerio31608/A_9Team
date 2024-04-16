@@ -1767,6 +1767,9 @@ MonoBehaviour:
   secondCard: {fileID: 0}
   timeTxt: {fileID: 1795289085}
   nameTxt: {fileID: 1658036070}
+  bestTimeTxt: {fileID: 0}
+  BestScoreTxt: {fileID: 1544483431}
+  BestTimeScoreTxt: {fileID: 0}
   endTxt: {fileID: 1848476827}
   audioSource: {fileID: 0}
   clip: {fileID: 8300000, guid: c5e5e4c0884fd824c831963d33d3a2f7, type: 3}
