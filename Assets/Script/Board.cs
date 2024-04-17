@@ -2,22 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Unity.VisualScripting;
 
 public class Board : MonoBehaviour
 {
     //public Transform cards;
     public GameObject card;
 
+    int[] arr = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7 };
+    float howManyCard = 0f;
+
+    float Xmore = 0;
+    float Ymore = 0;
+    float distance = 1.25f; // 요기 3개는 스테이지 3부터는 카드 스케일이 달라져서 거리 조절용 변수입니다!
+
     // Start is called before the first frame update
     void Start()
     {
-        int[] arr = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7 };
-        float howManyCard = 0f;
-
-        float Xmore = 0;
-        float Ymore = 0;
-        float distance = 1.25f; // 요기 3개는 스테이지 3부터는 카드 스케일이 달라져서 거리 조절용 변수입니다!
-
+         
         if (card.name == "Card1 MW") // 민우님, 8세트 16장
         {
             howManyCard = 7f;
@@ -51,18 +53,27 @@ public class Board : MonoBehaviour
 
         arr = arr.OrderBy(x => Random.Range(0f, howManyCard)).ToArray();
 
-        for (int i=0; i<(howManyCard+1)*2; i++)
+        GameManager.Instance.cardCount = arr.Length;
+
+        StartCoroutine(CardCreate());
+    }
+
+    IEnumerator CardCreate()
+    {
+        for (int i = 0; i < (howManyCard + 1) * 2; i++)
         {
-            GameObject go = Instantiate(card,this.transform);
-            //go.transform.parent = cards;
+            GameObject go = Instantiate(card, this.transform);
 
             float x = (i % 4) * distance - 1.875f + Xmore;
             float y = (i / 4) * distance - 2.85f - Ymore;
             go.transform.position = new Vector2(x, y);
             go.GetComponent<Card>().Setting(arr[i]);
+
+            Debug.Log("카드생성 : " + i);
+            yield return null;
         }
 
-        GameManager.Instance.cardCount = arr.Length;
+        yield break;
     }
 
 }
