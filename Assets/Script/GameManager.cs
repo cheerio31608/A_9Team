@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     public AudioClip finish;
     public AudioClip fail;
 
+    public Animator timer_anim;
+
     public int cardCount = 0;
 
     float time = 30.0f;
@@ -59,7 +61,9 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         audioSource = GetComponent<AudioSource>();
+        timer_anim = timeTxt.GetComponentInChildren<Animator>();
 
+        timer_anim.SetBool("isWarning", false);
         Camera.main.backgroundColor = new Color(90 / 255f, 90 / 255f, 255 / 255f);
         timeTxt.transform.localScale = new Vector3(1f, 1f, 1f);
 
@@ -84,6 +88,8 @@ public class GameManager : MonoBehaviour
             timeTxt.text = "Best Time: " + bestTime.ToString("N2");
         }
 
+        
+
         Score = 0;
     }
 
@@ -97,19 +103,24 @@ public class GameManager : MonoBehaviour
         {
             if (!is_tictok) // tictok 오디오
             {
+                timer_anim.SetBool("isWarning", true);
+
                 is_tictok = true;
                 audioSource_tictok.loop = true;
                 audioSource_tictok.Play();
             }
+            
 
             // 시간 UI 에 변화 주기
-            for (int i = 1; i <= (int)warning_time; ++i)
-            {
-                float t = (time) / 0.6f;
-                float scaleValue = Mathf.Sin(t * Mathf.PI); // 0에서 1로, 그리고 다시 0으로 변화
-                timeTxt.transform.localScale = Vector3.Lerp(Vector3.one, new Vector3(1.5f, 1.5f, 1f), scaleValue);
-                timeTxt.color = Color.Lerp(Color.white, Color.red, scaleValue);
-            }
+            //for (int i = 1; i <= (int)warning_time; ++i)
+            //{
+            //    float t = (time) / 0.6f;
+            //    float scaleValue = Mathf.Sin(t * Mathf.PI); // 0에서 1로, 그리고 다시 0으로 변화
+            //    timeTxt.transform.localScale = Vector3.Lerp(Vector3.one, new Vector3(1.5f, 1.5f, 1f), scaleValue);
+            //    timeTxt.color = Color.Lerp(Color.white, Color.red, scaleValue);
+            //}
+
+            
         }
 
         if (time < 0.0f)

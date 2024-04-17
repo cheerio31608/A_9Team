@@ -1507,7 +1507,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1679,6 +1679,7 @@ GameObject:
   - component: {fileID: 1795289084}
   - component: {fileID: 1795289086}
   - component: {fileID: 1795289085}
+  - component: {fileID: 1795289087}
   m_Layer: 5
   m_Name: TimeTxt
   m_TagString: Untagged
@@ -1747,6 +1748,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795289083}
   m_CullTransparentMesh: 1
+--- !u!95 &1795289087
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795289083}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c0212acf948bb514bba6c4e71148b588, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1849201393
 GameObject:
   m_ObjectHideFlags: 0
@@ -1796,12 +1818,14 @@ MonoBehaviour:
   secondCard: {fileID: 0}
   timeTxt: {fileID: 1795289085}
   nameTxt: {fileID: 1658036070}
+  bestTimeTxt: {fileID: 1544483433}
   endTxt: {fileID: 0}
   audioSource: {fileID: 0}
   clip: {fileID: 8300000, guid: c5e5e4c0884fd824c831963d33d3a2f7, type: 3}
   miss: {fileID: 8300000, guid: dc6614beca09347ec9b258f12d154bdd, type: 3}
   finish: {fileID: 8300000, guid: fe0b1f9aeb45b41b089175aeeabd5d95, type: 3}
   fail: {fileID: 8300000, guid: 5fdb13d3756c84fecac96f5a2d124370, type: 3}
+  timer_anim: {fileID: 0}
   cardCount: 0
   endPanel: {fileID: 1609583181}
   CountTxt: {fileID: 2005993262}
