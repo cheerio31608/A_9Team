@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     public Text nameTxt;
     // 정이현 - bestTimeTxt 추가
     public Text bestTimeTxt;
-    public GameObject endTxt;
     public AudioSource audioSource;
     public AudioClip clip;
     // 김신우 - miss, finish, fail 추가
@@ -23,10 +22,10 @@ public class GameManager : MonoBehaviour
     public AudioClip fail;
 
     public Animator timer_anim;
-
+    float time = 80.0f;
     public int cardCount = 0;
 
-    float time = 30.0f;
+    
     int MatchCount = 0;
 
     int time_score = 0;
@@ -38,15 +37,16 @@ public class GameManager : MonoBehaviour
 
     public Text CountTxt; //매치 카운트 텍스트
     public Text ScoreTxt;
-    public Text EndTimeTxt;
+    public Text BestScoreTxt;
 
     AudioSource audioSource_tictok; // 5초 남았을 때 재생할 AudioSource 컴포넌트를 받을 변수 audioSource_tictok
     public AudioClip clip_tictok;
     float warning_time = 5.0f; // 경고 나타낼 시간
     bool is_tictok = false; // clip_tictok 이 플레이되고 있는지
 
-    Color originalColor = new Color(90 / 255f, 90 / 255f, 255 / 255f);
-    Color targetColor = Color.red;
+
+    string key = "BestTime";
+    string skey = "BestScore";
 
     public void Awake()
     {
@@ -70,23 +70,6 @@ public class GameManager : MonoBehaviour
         audioSource_tictok = GetComponent<AudioSource>();
         audioSource_tictok.clip = clip_tictok;
 
-        float bestTime = PlayerPrefs.GetFloat("BestTime", float.MaxValue);
-
-        // UI에 최단 기록 표시
-        bestTimeTxt.text = "Best Time: " + bestTime.ToString("N2");
-
-        // 현재 기록이 최단 기록보다 빠른지 비교 
-        if (time < bestTime) // time이 bestTime보다 작으면 최단 기록 발생
-        {
-            // 현재 기록이 최단 기록보다 빠르다면 최단 기록 업데이트
-            bestTime = time;
-
-            // 최단 기록 저장
-            PlayerPrefs.SetFloat("BestTime", bestTime);
-
-            // UI에 최단 기록 표시
-            timeTxt.text = "Best Time: " + bestTime.ToString("N2");
-        }
 
         
 
@@ -111,15 +94,7 @@ public class GameManager : MonoBehaviour
                 audioSource_tictok.Play();
             }
             
-
-            // 시간 UI 에 변화 주기
-            //for (int i = 1; i <= (int)warning_time; ++i)
-            //{
-            //    float t = (time) / 0.6f;
-            //    float scaleValue = Mathf.Sin(t * Mathf.PI); // 0에서 1로, 그리고 다시 0으로 변화
-            //    timeTxt.transform.localScale = Vector3.Lerp(Vector3.one, new Vector3(1.5f, 1.5f, 1f), scaleValue);
-            //    timeTxt.color = Color.Lerp(Color.white, Color.red, scaleValue);
-            //}
+     
 
             
         }
@@ -132,8 +107,7 @@ public class GameManager : MonoBehaviour
 
             endPanel.SetActive(true);
             audioSource_tictok.Stop(); // tictok 오디오 종료
-            EndPanel();
-            //audioSource.PlayOneShot(fail);            
+            EndPanel();      
             Time.timeScale = 0.0f;
         }
 
@@ -234,10 +208,49 @@ public class GameManager : MonoBehaviour
         // 점수 계산
         Score = time_score + match_cnt_score + match_score;
 
-        EndTimeTxt.text = time.ToString("N2");
+        BestScoreTxt.text = Score.ToString("N2");
         CountTxt.text = MatchCount.ToString();
 
         ScoreTxt.text = Score.ToString();
+
+        // 최단시간 판단
+        if (PlayerPrefs.HasKey(key))
+        {
+            float best = PlayerPrefs.GetFloat(key);
+
+            if (best < time)
+            {
+                PlayerPrefs.SetFloat(key, time);
+                bestTimeTxt.text = time.ToString("N2");
+            }
+            else
+                bestTimeTxt.text = best.ToString("N2");
+        }
+        else
+        {
+            PlayerPrefs.SetFloat(key, time);
+            bestTimeTxt.text = time.ToString("N2");
+        } 
+
+
+        // 최고점수 판단
+        if (PlayerPrefs.HasKey(skey))
+        {
+            float best = PlayerPrefs.GetFloat(skey);
+
+            if (best < Score)
+            {
+                PlayerPrefs.SetFloat(skey, Score);
+                BestScoreTxt.text = Score.ToString();
+            }
+            else
+                BestScoreTxt.text = best.ToString();
+        }
+        else
+        {
+            PlayerPrefs.SetFloat(skey, Score);
+            BestScoreTxt.text = Score.ToString();
+        }
 
     }
 }
