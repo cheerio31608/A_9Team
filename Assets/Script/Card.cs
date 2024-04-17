@@ -54,6 +54,11 @@ public class Card : MonoBehaviour
 
     public void OpenCard()
     {
+        if(GameManager.Instance.secondCard != null)
+        {
+            return;
+        }
+
         audioSource.PlayOneShot(clip);
         anim.SetBool("isOpen", true);
 
