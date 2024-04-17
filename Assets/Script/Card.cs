@@ -16,6 +16,8 @@ public class Card : MonoBehaviour
 
     bool matched_fail = false;
 
+    private Coroutine myCoroutine;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +54,11 @@ public class Card : MonoBehaviour
 
     public void OpenCard()
     {
+        if(GameManager.Instance.secondCard != null)
+        {
+            return;
+        }
+
         audioSource.PlayOneShot(clip);
         anim.SetBool("isOpen", true);
 
@@ -62,12 +69,38 @@ public class Card : MonoBehaviour
         if (GameManager.Instance.firstCard == null)
         {
             GameManager.Instance.firstCard = this;
+            GameManager.Instance.firstCard.StartCoroutineExample();
         }
         else
         {
             GameManager.Instance.secondCard = this;
+            GameManager.Instance.firstCard.StopCoroutineExample();
             GameManager.Instance.Matched();
         }
+    }
+
+    public void StartCoroutineExample()
+    {
+        myCoroutine = StartCoroutine(MyCoroutine());
+    }
+
+    public void StopCoroutineExample()
+    {
+        if (myCoroutine != null)
+        {
+            StopCoroutine(myCoroutine);
+            myCoroutine = null;
+            Debug.Log("코루틴 중지됨");
+        }
+    }
+
+    IEnumerator MyCoroutine()
+    {
+        Debug.Log("Coroutine 시작");
+        yield return new WaitForSeconds(5.0f);
+        CloseCardInvoke();
+        GameManager.Instance.firstCard = null;
+        Debug.Log("Coroutine 종료");
     }
     public void DestroyCard()
     {

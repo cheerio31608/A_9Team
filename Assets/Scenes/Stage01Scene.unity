@@ -1507,7 +1507,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1825,6 +1825,7 @@ MonoBehaviour:
   miss: {fileID: 8300000, guid: dc6614beca09347ec9b258f12d154bdd, type: 3}
   finish: {fileID: 8300000, guid: fe0b1f9aeb45b41b089175aeeabd5d95, type: 3}
   fail: {fileID: 8300000, guid: 5fdb13d3756c84fecac96f5a2d124370, type: 3}
+  timer_anim: {fileID: 0}
   cardCount: 0
   endPanel: {fileID: 1609583181}
   CountTxt: {fileID: 2005993262}
