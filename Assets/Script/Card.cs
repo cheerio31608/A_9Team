@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
+    public static Card Instance;
+
     public int idx = 0;
     public SpriteRenderer frontImage;
     public SpriteRenderer background; // 카드의 뒷면 (색상 변경을 위해서)
@@ -18,6 +20,11 @@ public class Card : MonoBehaviour
 
     private Coroutine myCoroutine;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +32,7 @@ public class Card : MonoBehaviour
 
         background = back.GetComponentInChildren<SpriteRenderer>(); // 뒷면 색상 변경을 위해서
 
+        anim = anim.GetComponent<Animator>();
     }
 
     public void Setting(int number)
@@ -50,6 +58,11 @@ public class Card : MonoBehaviour
         {
             frontImage.sprite = Resources.Load<Sprite>($"LH/LH_{idx}");
         }
+    }
+
+    public void CardCreatAnim()
+    {
+        anim.SetBool("Game Play", true);
     }
 
     public void OpenCard()
