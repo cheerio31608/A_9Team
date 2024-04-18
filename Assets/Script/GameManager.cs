@@ -77,12 +77,13 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        StartCoroutine(TimeSetting());
+        StartCoroutine(TimeSetting(1 + stage * 0.1f));
     }
-    IEnumerator TimeSetting()  //Timer 함수 그대로 코루틴으로 바꿨습니다. (게임 시작 후 몇초간 딜레이 적용 가능)
+    IEnumerator TimeSetting(float t)  //Timer 함수 그대로 코루틴으로 바꿨습니다. (게임 시작 후 몇초간 딜레이 적용 가능)
     {
-        yield return new WaitForSeconds(4.0f);
+        yield return new WaitForSeconds(t);
         time -= Time.deltaTime;
+        Card.time_started = true;
         if (time <= warning_time) // 경고
         {
             if (!is_tictok) // tictok 오디오

@@ -17,6 +17,7 @@ public class Card : MonoBehaviour
     public Animator anim;
 
     bool matched_fail = false;
+    public static bool time_started = false;
 
     private Coroutine myCoroutine;
 
@@ -67,7 +68,7 @@ public class Card : MonoBehaviour
 
     public void OpenCard()
     {
-        if(GameManager.Instance.secondCard != null)
+        if(GameManager.Instance.secondCard != null || time_started == false)
         {
             return;
         }

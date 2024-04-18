@@ -1690,7 +1690,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1767415896}
         m_TargetAssemblyTypeName: RetryButton, Assembly-CSharp
-        m_MethodName: Stage01Scene
+        m_MethodName: Stage02Scene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1886,21 +1886,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstCard: {fileID: 0}
   secondCard: {fileID: 0}
+  board: {fileID: 0}
+  endPanel: {fileID: 812266363}
   timeTxt: {fileID: 1795289085}
   nameTxt: {fileID: 1658036070}
   bestTimeTxt: {fileID: 1226045427}
+  CountTxt: {fileID: 1709548695}
+  ScoreTxt: {fileID: 309453926}
+  BestScoreTxt: {fileID: 919303939}
   audioSource: {fileID: 0}
+  audioSource_tictok: {fileID: 0}
   clip: {fileID: 8300000, guid: c5e5e4c0884fd824c831963d33d3a2f7, type: 3}
   miss: {fileID: 8300000, guid: dc6614beca09347ec9b258f12d154bdd, type: 3}
   finish: {fileID: 8300000, guid: fe0b1f9aeb45b41b089175aeeabd5d95, type: 3}
   fail: {fileID: 8300000, guid: 5fdb13d3756c84fecac96f5a2d124370, type: 3}
+  clip_tictok: {fileID: 8300000, guid: c5e2a73ad4706440f93bf05df0b465fe, type: 3}
   timer_anim: {fileID: 0}
   cardCount: 0
-  endPanel: {fileID: 812266363}
-  CountTxt: {fileID: 1709548695}
-  ScoreTxt: {fileID: 309453926}
-  BestScoreTxt: {fileID: 919303939}
-  clip_tictok: {fileID: 8300000, guid: c5e2a73ad4706440f93bf05df0b465fe, type: 3}
 --- !u!82 &1849201396
 AudioSource:
   m_ObjectHideFlags: 0
