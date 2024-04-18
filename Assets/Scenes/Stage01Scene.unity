@@ -2056,8 +2056,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstCard: {fileID: 0}
   secondCard: {fileID: 0}
-
-  board: {fileID: 0}
   endPanel: {fileID: 82794059}
   timeTxt: {fileID: 1795289085}
   nameTxt: {fileID: 1658036070}
@@ -2067,11 +2065,11 @@ MonoBehaviour:
   BestScoreTxt: {fileID: 585839984}
   audioSource: {fileID: 0}
   audioSource_tictok: {fileID: 0}
-  clip: {fileID: 8300000, guid: c5e5e4c0884fd824c831963d33d3a2f7, type: 3}
-  miss: {fileID: 8300000, guid: dc6614beca09347ec9b258f12d154bdd, type: 3}
+  clip: {fileID: 0}
+  miss: {fileID: 0}
   finish: {fileID: 8300000, guid: fe0b1f9aeb45b41b089175aeeabd5d95, type: 3}
-  fail: {fileID: 8300000, guid: 5fdb13d3756c84fecac96f5a2d124370, type: 3}
-  clip_tictok: {fileID: 8300000, guid: c5e2a73ad4706440f93bf05df0b465fe, type: 3}
+  fail: {fileID: 0}
+  clip_tictok: {fileID: 0}
   timer_anim: {fileID: 0}
   cardCount: 0
 --- !u!82 &1849201396
