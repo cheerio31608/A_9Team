@@ -17,7 +17,6 @@ public class Card : MonoBehaviour
     public AudioSource audioSource;
 
     public Animator anim;
-    public int id = 0;
     bool matched_fail = false;
     public static bool time_started = false;
 
