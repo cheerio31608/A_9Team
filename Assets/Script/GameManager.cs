@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public Card secondCard;
 
     public GameObject endPanel;
+    public GameObject profilePanel;
 
     public Text timeTxt;
     public Text nameTxt;
@@ -17,6 +18,9 @@ public class GameManager : MonoBehaviour
     public Text CountTxt;
     public Text ScoreTxt;
     public Text BestScoreTxt;
+    public Text EndpanelTitle;
+    public Text EndpanelStage;
+    public Text Comment;
 
     public AudioSource audioSource;
     public AudioSource audioSource_tictok;
@@ -113,7 +117,7 @@ public class GameManager : MonoBehaviour
         }
         timeTxt.text = time.ToString("N2");
     }
-    void GameOver()
+    public void GameOver()
     {
         Time.timeScale = 0.0f;
         Calculate_Score();
@@ -141,7 +145,9 @@ public class GameManager : MonoBehaviour
 
             if (cardCount == 0)
             {
-                GameOver();
+                Time.timeScale = 0.0f;
+                profilePanel.SetActive(true);
+                // GameOver();
                 //Time.timeScale = 0.0f;
                 //endPanel.SetActive(true);
                 //EndPanel();
@@ -294,6 +300,12 @@ public class GameManager : MonoBehaviour
         }
         Score = time_score + match_cnt_score + match_score;
     }
+
+    public void onEndpanel()
+    {
+        endPanel.SetActive(true);
+        profilePanel.SetActive(false);
+    }
     void EndPanel()
     {
         BestScoreTxt.text = Score.ToString("N2");
@@ -335,5 +347,24 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetFloat(stage_skey, Score);
             BestScoreTxt.text = Score.ToString();
         }
+
+        //ENDPANEL 이름 변경
+        if (cardCount == 0) { 
+            EndpanelTitle.text = "CLEAR";
+            Comment.text = "NICE PLAY!";
+        }
+        else { 
+            EndpanelTitle.text = "GAME OVER";
+            Comment.text = "좀 더 노력하세요.";
+        }
+
+        if (stage == 1)
+            EndpanelStage.text = "STAGE 1";
+        else if (stage == 2)
+            EndpanelStage.text = "STAGE 2";
+        else if (stage == 3)
+            EndpanelStage.text = "STAGE 3";
+        else
+            EndpanelStage.text = "STAGE 4";
     }
 }
