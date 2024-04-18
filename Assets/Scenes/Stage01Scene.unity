@@ -2056,6 +2056,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstCard: {fileID: 0}
   secondCard: {fileID: 0}
+
   board: {fileID: 0}
   endPanel: {fileID: 82794059}
   timeTxt: {fileID: 1795289085}

@@ -8,14 +8,14 @@ public class Card : MonoBehaviour
 
     public int idx = 0;
     public SpriteRenderer frontImage;
-    public SpriteRenderer background; // Ä«µåÀÇ µŞ¸é (»ö»ó º¯°æÀ» À§ÇØ¼­)
+    public SpriteRenderer background; // ì¹´ë“œì˜ ë’·ë©´ (ìƒ‰ìƒ ë³€ê²½ì„ ìœ„í•´ì„œ)
     public GameObject front;
     public GameObject back;
     public AudioClip clip;
     public AudioSource audioSource;
 
     public Animator anim;
-
+    public int id = 0;
     bool matched_fail = false;
     public static bool time_started = false;
 
@@ -31,7 +31,7 @@ public class Card : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
 
-        background = back.GetComponentInChildren<SpriteRenderer>(); // µŞ¸é »ö»ó º¯°æÀ» À§ÇØ¼­
+        background = back.GetComponentInChildren<SpriteRenderer>(); // ë’·ë©´ ìƒ‰ìƒ ë³€ê²½ì„ ìœ„í•´ì„œ
 
         anim = anim.GetComponent<Animator>();
     }
@@ -39,13 +39,14 @@ public class Card : MonoBehaviour
     public void Setting(int number)
     {
         idx = number;
-        string objectName = gameObject.name; // ÇöÀç ¿ÀºêÁ§Æ® ÀÌ¸§À» ¹Ş¾Æ¿Í¼­ È®ÀÎÇÒ°Å¿¡¿ë
+        id = GetInstanceID();
+        string objectName = gameObject.name; // í˜„ì¬ ì˜¤ë¸Œì íŠ¸ ì´ë¦„ì„ ë°›ì•„ì™€ì„œ í™•ì¸í• ê±°ì—ìš©
         //Debug.Log(objectName);
 
-        if (objectName == "Card1 MW(Clone)") // ¸¸¾à ¿ÀºêÁ§Æ® ÀÌ¸§ÀÌ MW ¶ó¸é
+        if (objectName == "Card1 MW(Clone)") // ë§Œì•½ ì˜¤ë¸Œì íŠ¸ ì´ë¦„ì´ MW ë¼ë©´
         {
-            //Debug.Log(" ¹Î¿ì´Ô Ä«µå Ã£À½");
-            frontImage.sprite = Resources.Load<Sprite>($"MW/MW_{idx}"); //MW Æú´õ ³»ºÎ¿¡ ÀÖ´Â mw_idx ÆÄÀÏÀ» ÇÁ·ĞÆ®·Î ¼³Á¤
+            //Debug.Log(" ë¯¼ìš°ë‹˜ ì¹´ë“œ ì°¾ìŒ");
+            frontImage.sprite = Resources.Load<Sprite>($"MW/MW_{idx}"); //MW í´ë” ë‚´ë¶€ì— ìˆëŠ” mw_idx íŒŒì¼ì„ í”„ë¡ íŠ¸ë¡œ ì„¤ì •
         }
         else if (objectName == "Card2 JW(Clone)")
         {
@@ -69,9 +70,11 @@ public class Card : MonoBehaviour
     public void OpenCard()
     {
         if(GameManager.Instance.secondCard != null || time_started == false)
-        {
             return;
-        }
+        
+
+        if (GameManager.Instance.firstCard != null && GameManager.Instance.firstCard.id == id)
+            return;
 
         audioSource.PlayOneShot(clip);
         anim.SetBool("isOpen", true);
@@ -100,17 +103,17 @@ public class Card : MonoBehaviour
         {
             StopCoroutine(myCoroutine);
             myCoroutine = null;
-            Debug.Log("ÄÚ·çÆ¾ ÁßÁöµÊ");
+            Debug.Log("ì½”ë£¨í‹´ ì¤‘ì§€ë¨");
         }
     }
 
     IEnumerator MyCoroutine()
     {
-        Debug.Log("Coroutine ½ÃÀÛ");
+        Debug.Log("Coroutine ì‹œì‘");
         yield return new WaitForSeconds(5.0f);
         CloseCardInvoke();
         GameManager.Instance.firstCard = null;
-        Debug.Log("Coroutine Á¾·á");
+        Debug.Log("Coroutine ì¢…ë£Œ");
     }
     public void DestroyCard()
     {
@@ -119,6 +122,8 @@ public class Card : MonoBehaviour
 
     void DestoryCardInvoke()
     {
+        GameManager.Instance.firstCard = null;
+        GameManager.Instance.secondCard = null;
         Destroy(gameObject);
     }
 
@@ -129,6 +134,8 @@ public class Card : MonoBehaviour
 
     void CloseCardInvoke()
     {
+        GameManager.Instance.firstCard = null;
+        GameManager.Instance.secondCard = null;
         anim.SetBool("isOpen", false);
         if (!matched_fail)
         {
