@@ -150,7 +150,7 @@ public class GameManager : MonoBehaviour
             else // 맞추면 보너스 시간 +0.2초
             {
                 timer_anim.SetTrigger("PlayIncrease");
-                time += 0.2f;
+                time += 1.0f;
             }
 
         }
