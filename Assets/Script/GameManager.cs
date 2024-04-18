@@ -49,8 +49,6 @@ public class GameManager : MonoBehaviour
     string[] match_success = { "성공 !", "Good !", "Great !", "Perfect !" }; 
     string[] match_fail = { "까비", "ㅋ", "실패 !", "뭐해?", "땡 !" };
 
-    string[] match_success = { "성공 !", "Good !", "Great !", "Perfect !" };
-    string[] match_fail = { "까비", "ㅋ", "실패 !", "뭐해?", "땡 !" };
 
     public void Awake()
     {
