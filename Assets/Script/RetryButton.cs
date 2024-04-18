@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 public class RetryButton : MonoBehaviour
 {
     public static int level = 0;
-    public void Retry()
+
+    public void On_GameOver()
     {
-        AudioManager.Instance.btnclick();
-        SceneManager.LoadScene("MainScene");
+        GameManager.Instance.GameOver();
     }
     public void SelectScene() //선택 씬 불러오기
     {
@@ -39,6 +39,4 @@ public class RetryButton : MonoBehaviour
         SceneManager.LoadScene("Stage04Scene");
         level = 4;
     }
-
-
 }
