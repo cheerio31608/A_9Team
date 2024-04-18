@@ -36,7 +36,7 @@ AnimatorStateMachine:
     m_Position: {x: 210, y: 290, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5032551940323697544}
-    m_Position: {x: 500, y: 180, z: 0}
+    m_Position: {x: 550, y: 260, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5701810976329635666}
     m_Position: {x: 260, y: 70, z: 0}
@@ -173,19 +173,19 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: PlayIncrease
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: PlayDecrease
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer

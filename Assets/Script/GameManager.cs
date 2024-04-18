@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 
     int stage;
     float time = 30.0f;
-    float warning_time = 5.0f; // 경고 나타낼 시간
+    float warning_time = 5.0f;
 
     public int cardCount = 0;
     int MatchCount = 0;
@@ -145,7 +145,7 @@ public class GameManager : MonoBehaviour
             else // 맞추면 보너스 시간 +0.2초
             {
                 timer_anim.SetTrigger("PlayIncrease");
-                time += 0.2f;
+                time += 1.0f;
             }
                
         }
@@ -158,8 +158,8 @@ public class GameManager : MonoBehaviour
             firstCard.CloseCard();
             secondCard.CloseCard();
         }
-        firstCard = null;
-        secondCard = null;
+        //firstCard = null;
+        //secondCard = null;
     }
     void Calculate_Score()
     {
