@@ -41,13 +41,14 @@ public class GameManager : MonoBehaviour
     int match_cnt_score = 0;
     int Score = 0;
 
-    bool is_tictok = false; // clip_tictok ÀÌ ÇÃ·¹ÀÌµÇ°í ÀÖ´ÂÁö
-    bool game_started = true; // °ÔÀÓÀÌ ½ÃÀÛµÆ´ÂÁö
+    bool is_tictok = false; // clip_tictok ì´ í”Œë ˆì´ë˜ê³  ìˆëŠ”ì§€
+    bool game_started = true; // ê²Œì„ì´ ì‹œì‘ëëŠ”ì§€
 
     string key = "BestTime";
     string skey = "BestScore";
-    string[] match_success = { "¼º°ø !", "Good !", "Great !", "Perfect !" }; 
-    string[] match_fail = { "±îºñ", "¤»", "½ÇÆĞ !", "¹¹ÇØ?", "¶¯ !" };
+    string[] match_success = { "ì„±ê³µ !", "Good !", "Great !", "Perfect !" }; 
+    string[] match_fail = { "ê¹Œë¹„", "ã…‹", "ì‹¤íŒ¨ !", "ë­í•´?", "ë•¡ !" };
+
 
     public void Awake()
     {
@@ -60,8 +61,8 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         stage = RetryButton.level;
-        Debug.Log(stage);
-        // ½ºÅ×ÀÌÁö º° ½Ã°£ ¼³Á¤
+
+        // ìŠ¤í…Œì´ì§€ ë³„ ì‹œê°„ ì„¤ì •
         if (stage == 1)
             time = 30.0f;
         else if (stage == 2)
@@ -81,19 +82,19 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(TimeSetting(1 + stage * 0.1f));
     }
-    IEnumerator TimeSetting(float t)  //Timer ÇÔ¼ö ±×´ë·Î ÄÚ·çÆ¾À¸·Î ¹Ù²å½À´Ï´Ù. (°ÔÀÓ ½ÃÀÛ ÈÄ ¸îÃÊ°£ µô·¹ÀÌ Àû¿ë °¡´É)
+    IEnumerator TimeSetting(float t)  //Timer í•¨ìˆ˜ ê·¸ëŒ€ë¡œ ì½”ë£¨í‹´ìœ¼ë¡œ ë°”ê¿¨ìŠµë‹ˆë‹¤. (ê²Œì„ ì‹œì‘ í›„ ëª‡ì´ˆê°„ ë”œë ˆì´ ì ìš© ê°€ëŠ¥)
     {
         yield return new WaitForSeconds(t);
         time -= Time.deltaTime;
         if (game_started)
         {
-            nameTxt.text = "½ÃÀÛ !";
+            nameTxt.text = "ì‹œì‘ !";
             game_started = false;
         }
         Card.time_started = true;
-        if (time <= warning_time) // °æ°í
+        if (time <= warning_time) // ê²½ê³ 
         {
-            if (!is_tictok) // tictok ¿Àµğ¿À
+            if (!is_tictok) // tictok ì˜¤ë””ì˜¤
             {
                 timer_anim.SetBool("isWarning", true);
                 is_tictok = true;
@@ -103,7 +104,7 @@ public class GameManager : MonoBehaviour
         }
         if (time < 0.0f)
         {
-            // ±è½Å¿ì - fail »ç¿îµå Ãß°¡
+            // ê¹€ì‹ ìš° - fail ì‚¬ìš´ë“œ ì¶”ê°€
             time = 0f;
             endPanel.SetActive(true);
             audioSource_tictok.Stop();
@@ -123,16 +124,21 @@ public class GameManager : MonoBehaviour
     {
         CancelInvoke();
         MatchCount++;
-        // ±è½Å¿ì - ÀÌ¹ÌÁö¿¡ µû¸¥ Á¶¿ø ÀÌ¸§ Ç¥½Ã, »ç¿îµå Ãß°¡
-        // ½ºÅ×ÀÌÁöº°·Î ÀÎ¿øÀ» ³ª´³±â ¶§¹®¿¡ ÇØ´ç ºÎºĞ ÄÚµå ¼öÁ¤ÀÌ ÇÊ¿äÇÕ´Ï´Ù!! (Áö¿ø)
+        // ê¹€ì‹ ìš° - ì´ë¯¸ì§€ì— ë”°ë¥¸ ì¡°ì› ì´ë¦„ í‘œì‹œ, ì‚¬ìš´ë“œ ì¶”ê°€
+        // ìŠ¤í…Œì´ì§€ë³„ë¡œ ì¸ì›ì„ ë‚˜ëˆ´ê¸° ë•Œë¬¸ì— í•´ë‹¹ ë¶€ë¶„ ì½”ë“œ ìˆ˜ì •ì´ í•„ìš”í•©ë‹ˆë‹¤!! (ì§€ì›)
+
+
         if (firstCard.idx == secondCard.idx)
         {
             nameTxt.text = match_success[Random.Range(0, match_success.Length)];
+
             audioSource.PlayOneShot(clip);
             firstCard.DestroyCard();
             secondCard.DestroyCard();
+
             cardCount -= 2;
             match_score += 2;
+
             if (cardCount == 0)
             {
                 GameOver();
@@ -141,19 +147,19 @@ public class GameManager : MonoBehaviour
                 //EndPanel();
                 audioSource.PlayOneShot(finish);
             }
-            else // ¸ÂÃß¸é º¸³Ê½º ½Ã°£ +0.2ÃÊ
+            else // ë§ì¶”ë©´ ë³´ë„ˆìŠ¤ ì‹œê°„ +0.2ì´ˆ
             {
                 timer_anim.SetTrigger("PlayIncrease");
                 time += 1.0f;
             }
-               
+
         }
         else
         {
             nameTxt.text = match_fail[Random.Range(0, match_fail.Length)];
             audioSource.PlayOneShot(miss);
             timer_anim.SetTrigger("PlayDecrease");
-            time -= 0.5f; // Æ²¸®¸é Æä³ÎÆ¼ ½Ã°£ -0.5ÃÊ
+            time -= 0.5f; // í‹€ë¦¬ë©´ í˜ë„í‹° ì‹œê°„ -0.5ì´ˆ
             firstCard.CloseCard();
             secondCard.CloseCard();
         }
@@ -164,7 +170,7 @@ public class GameManager : MonoBehaviour
     {
         if (stage == 1) // 50 + 34 + 16 = 100
         {
-            // ½Ã°£ Á¡¼ö
+            // ì‹œê°„ ì ìˆ˜
             if (time >= 15.0f)
                 time_score = 50;
             else if (time >= 10.0f)
@@ -175,7 +181,7 @@ public class GameManager : MonoBehaviour
                 time_score = 20;
             else
                 time_score = 0;
-            // ¸ÅÄª ½Ãµµ È½¼ö Á¡¼ö
+            // ë§¤ì¹­ ì‹œë„ íšŸìˆ˜ ì ìˆ˜
             if (cardCount == 0)
             {
                 if (MatchCount <= 16)
@@ -194,7 +200,7 @@ public class GameManager : MonoBehaviour
         }
         else if (stage == 2) // 50 + 30 + 20
         {
-            // ½Ã°£ Á¡¼ö
+            // ì‹œê°„ ì ìˆ˜
             if (time >= 20.0f)
                 time_score = 50;
             else if (time >= 15.0f)
@@ -207,7 +213,7 @@ public class GameManager : MonoBehaviour
                 time_score = 10;
             else
                 time_score = 0;
-            // ¸ÅÄª ½Ãµµ È½¼ö Á¡¼ö
+            // ë§¤ì¹­ ì‹œë„ íšŸìˆ˜ ì ìˆ˜
             if (cardCount == 0)
             {
                 if (MatchCount <= 20)
@@ -226,7 +232,7 @@ public class GameManager : MonoBehaviour
         }
         else if (stage == 3) // 50 + 26 + 24
         {
-            // ½Ã°£ Á¡¼ö
+            // ì‹œê°„ ì ìˆ˜
             if (time >= 30.0f)
                 time_score = 50;
             else if (time >= 20.0f)
@@ -239,7 +245,7 @@ public class GameManager : MonoBehaviour
                 time_score = 10;
             else
                 time_score = 0;
-            // ¸ÅÄª ½Ãµµ È½¼ö Á¡¼ö
+            // ë§¤ì¹­ ì‹œë„ íšŸìˆ˜ ì ìˆ˜
             if (cardCount == 0)
             {
                 if (MatchCount <= 24)
@@ -258,7 +264,7 @@ public class GameManager : MonoBehaviour
         }
         else  // level == 4,  50 + 22 + 28
         {
-            // ½Ã°£ Á¡¼ö
+            // ì‹œê°„ ì ìˆ˜
             if (time >= 40.0f)
                 time_score = 50;
             else if (time >= 20.0f)
@@ -271,7 +277,7 @@ public class GameManager : MonoBehaviour
                 time_score = 10;
             else
                 time_score = 0;
-            // ¸ÅÄª ½Ãµµ È½¼ö Á¡¼ö
+            // ë§¤ì¹­ ì‹œë„ íšŸìˆ˜ ì ìˆ˜
             if (cardCount == 0)
             {
                 if (MatchCount <= 28)
@@ -293,7 +299,7 @@ public class GameManager : MonoBehaviour
         BestScoreTxt.text = Score.ToString("N2");
         CountTxt.text = MatchCount.ToString();
         ScoreTxt.text = Score.ToString();
-        // ÃÖ´Ü½Ã°£ ÆÇ´Ü
+        // ìµœë‹¨ì‹œê°„ íŒë‹¨
         string stage_key = key + stage.ToString();
         string stage_skey = skey + stage.ToString();
         if (PlayerPrefs.HasKey(stage_key))
@@ -312,7 +318,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetFloat(stage_skey, time);
             bestTimeTxt.text = time.ToString("N2");
         }
-        // ÃÖ°íÁ¡¼ö ÆÇ´Ü
+        // ìµœê³ ì ìˆ˜ íŒë‹¨
         if (PlayerPrefs.HasKey(stage_skey))
         {
             float best = PlayerPrefs.GetFloat(stage_skey);
