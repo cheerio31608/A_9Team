@@ -2009,7 +2009,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstCard: {fileID: 0}
   secondCard: {fileID: 0}
+
   board: {fileID: 0}
+
   endPanel: {fileID: 2129940487}
   timeTxt: {fileID: 1795289085}
   nameTxt: {fileID: 1658036070}
