@@ -7,6 +7,8 @@ public class Card : MonoBehaviour
     public static Card Instance;
 
     public int idx = 0;
+    public int id = 0;
+
     public SpriteRenderer frontImage;
     public SpriteRenderer background; // 카드의 뒷면 (색상 변경을 위해서)
     public GameObject front;
@@ -15,7 +17,6 @@ public class Card : MonoBehaviour
     public AudioSource audioSource;
 
     public Animator anim;
-    public int id = 0;
     bool matched_fail = false;
     public static bool time_started = false;
 
@@ -40,7 +41,9 @@ public class Card : MonoBehaviour
     {
         idx = number;
         id = GetInstanceID();
-        string objectName = gameObject.name; // 현재 오브젝트 이름을 받아와서 확인할거에용
+
+        string objectName = gameObject.name; // ���� ������Ʈ �̸��� �޾ƿͼ� Ȯ���Ұſ���
+
         //Debug.Log(objectName);
 
         if (objectName == "Card1 MW(Clone)") // 만약 오브젝트 이름이 MW 라면
@@ -72,6 +75,9 @@ public class Card : MonoBehaviour
         if(GameManager.Instance.secondCard != null || time_started == false)
             return;
         
+
+        if (GameManager.Instance.firstCard != null && GameManager.Instance.firstCard.id == id)
+            return;
 
         if (GameManager.Instance.firstCard != null && GameManager.Instance.firstCard.id == id)
             return;
