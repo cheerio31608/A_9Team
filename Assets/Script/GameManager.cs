@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     public Card firstCard;
     public Card secondCard;
 
-    public Board board;
     public GameObject endPanel;
 
     public Text timeTxt;
@@ -32,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     int stage;
     float time = 30.0f;
-    float warning_time = 5.0f; // 경고 나타낼 시간
+    float warning_time = 5.0f;
 
     public int cardCount = 0;
     int MatchCount = 0;
@@ -47,6 +46,9 @@ public class GameManager : MonoBehaviour
     string key = "BestTime";
     string skey = "BestScore";
 
+    string[] match_success = { "성공 !", "Good !", "Great !", "Perfect !" };
+    string[] match_fail = { "까비", "ㅋ", "실패 !", "뭐해?", "땡 !" };
+
     public void Awake()
     {
         if (Instance == null)
@@ -58,7 +60,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         stage = RetryButton.level;
-        Debug.Log(stage);
+
         // 스테이지 별 시간 설정
         if (stage == 1)
             time = 30.0f;
@@ -117,29 +119,19 @@ public class GameManager : MonoBehaviour
         MatchCount++;
         // 김신우 - 이미지에 따른 조원 이름 표시, 사운드 추가
         // 스테이지별로 인원을 나눴기 때문에 해당 부분 코드 수정이 필요합니다!! (지원)
+
+
         if (firstCard.idx == secondCard.idx)
         {
-            if (firstCard.idx < 2)
-            {
-                nameTxt.text = "김민우";
-            }
-            else if (firstCard.idx >= 2 && firstCard.idx < 4)
-            {
-                nameTxt.text = "김신우";
-            }
-            else if (firstCard.idx >= 4 && firstCard.idx < 6)
-            {
-                nameTxt.text = "정이현";
-            }
-            else
-            {
-                nameTxt.text = "최지원";
-            }
+            nameTxt.text = match_success[Random.Range(0, match_success.Length)];
+
             audioSource.PlayOneShot(clip);
             firstCard.DestroyCard();
             secondCard.DestroyCard();
+
             cardCount -= 2;
             match_score += 2;
+
             if (cardCount == 0)
             {
                 GameOver();
@@ -149,18 +141,22 @@ public class GameManager : MonoBehaviour
                 audioSource.PlayOneShot(finish);
             }
             else // 맞추면 보너스 시간 +0.2초
+            {
+                timer_anim.SetTrigger("PlayIncrease");
                 time += 0.2f;
+            }
         }
         else
         {
-            nameTxt.text = "실패!";
+            nameTxt.text = match_fail[Random.Range(0, match_fail.Length)];
             audioSource.PlayOneShot(miss);
+            timer_anim.SetTrigger("PlayDecrease");
             time -= 0.5f; // 틀리면 페널티 시간 -0.5초
             firstCard.CloseCard();
             secondCard.CloseCard();
         }
-        firstCard = null;
-        secondCard = null;
+        //firstCard = null;
+        //secondCard = null;
     }
     void Calculate_Score()
     {

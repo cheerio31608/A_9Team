@@ -15,7 +15,7 @@ public class Card : MonoBehaviour
     public AudioSource audioSource;
 
     public Animator anim;
-
+    public int id = 0;
     bool matched_fail = false;
 
     private Coroutine myCoroutine;
@@ -38,6 +38,7 @@ public class Card : MonoBehaviour
     public void Setting(int number)
     {
         idx = number;
+        id = GetInstanceID();
         string objectName = gameObject.name; // 현재 오브젝트 이름을 받아와서 확인할거에용
         //Debug.Log(objectName);
 
@@ -68,9 +69,11 @@ public class Card : MonoBehaviour
     public void OpenCard()
     {
         if(GameManager.Instance.secondCard != null)
-        {
             return;
-        }
+        
+
+        if (GameManager.Instance.firstCard != null && GameManager.Instance.firstCard.id == id)
+            return;
 
         audioSource.PlayOneShot(clip);
         anim.SetBool("isOpen", true);
@@ -118,6 +121,8 @@ public class Card : MonoBehaviour
 
     void DestoryCardInvoke()
     {
+        GameManager.Instance.firstCard = null;
+        GameManager.Instance.secondCard = null;
         Destroy(gameObject);
     }
 
@@ -128,6 +133,8 @@ public class Card : MonoBehaviour
 
     void CloseCardInvoke()
     {
+        GameManager.Instance.firstCard = null;
+        GameManager.Instance.secondCard = null;
         anim.SetBool("isOpen", false);
         if (!matched_fail)
         {
