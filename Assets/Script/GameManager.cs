@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     public Card firstCard;
     public Card secondCard;
 
-    public Board board;
     public GameObject endPanel;
 
     public Text timeTxt;
