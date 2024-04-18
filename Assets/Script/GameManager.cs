@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
@@ -46,12 +47,19 @@ public class GameManager : MonoBehaviour
     int Score = 0;
 
     bool is_tictok = false; // clip_tictok 이 플레이되고 있는지
-    bool game_started = true; // 게임이 시작됐는지
+
+    public static bool game_started = false; // 카드 준비 완료 됐는지 확인 용
 
     string key = "BestTime";
     string skey = "BestScore";
-    string[] match_success = { "성공 !", "Good !", "Great !", "Perfect !" }; 
+
     string[] match_fail = { "까비", "ㅋ", "실패 !", "뭐해?", "땡 !" };
+    string[] stage_1 = { "유년기 김민우", "얼빡샷 김민우", "양치하는 김민우", "거울샷 김민우", "SD김민우", "김민우리신모스트", "JEP김민우", "리 신" };
+    string[] stage_2 = { "폭파범", "야너두 할수있는 최지원", "신궁", "JEP최지원", "유년기최지원", "SD최지원", "셀카 최지원", "악수하는 최지원", "스키장 최지원", "네컷 최지원" };
+    string[] stage_3 = { "핸드폰 김신우", "SD김신우", "JEP김신우", "피곤한 김신우", "브이 김신우",
+        "한복 김신우", "장발 김신우", "여장 김신우", "교복 김신우", "유년기 김신우", "벌칙걸린 김신우", "곰은 사람을 찢어" };
+    string[] stage_4 = { "정이현의 라볶이", "SD정이현", "JEP정이현", "머리띠 쓴 정이현", "노래방 정이현",
+        "벚꽃샷 정이현", "삼색냥만지는정이현부럽다", "모자쓴 정이현", "정이현의 옥수수", "정이현", "아칼리", "브이 정이현", "고양이몰래찍는정이현", "자는고양이구경하는정이현" };
 
 
     public void Awake()
@@ -64,6 +72,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1.0f;
+        game_started = false;
+
         stage = RetryButton.level;
 
         // 스테이지 별 시간 설정
@@ -75,27 +85,25 @@ public class GameManager : MonoBehaviour
             time = 60.0f;
         else
             time = 80.0f;
+
         audioSource = GetComponent<AudioSource>();
-        timer_anim = timeTxt.GetComponentInChildren<Animator>();
+        timer_anim = timeTxt.GetComponent<Animator>();
         timer_anim.SetBool("isWarning", false);
+
         audioSource_tictok = GetComponent<AudioSource>();
         audioSource_tictok.clip = clip_tictok;
         Score = 0;
+
     }
     void Update()
     {
-        StartCoroutine(TimeSetting(1 + stage * 0.1f));
-    }
-    IEnumerator TimeSetting(float t)  //Timer 함수 그대로 코루틴으로 바꿨습니다. (게임 시작 후 몇초간 딜레이 적용 가능)
-    {
-        yield return new WaitForSeconds(t);
+
+        if (!game_started)
+            return;
+
         time -= Time.deltaTime;
-        if (game_started)
-        {
-            nameTxt.text = "시작 !";
-            game_started = false;
-        }
         Card.time_started = true;
+
         if (time <= warning_time) // 경고
         {
             if (!is_tictok) // tictok 오디오
@@ -117,12 +125,18 @@ public class GameManager : MonoBehaviour
         }
         timeTxt.text = time.ToString("N2");
     }
+
+    public void On_Panel()
+    {
+        profilePanel.SetActive(true);
+    }
     public void GameOver()
     {
-        Time.timeScale = 0.0f;
         Calculate_Score();
         EndPanel();
+        profilePanel.SetActive(false);
         endPanel.SetActive(true);
+
     }
     public void Matched()
     {
@@ -134,7 +148,14 @@ public class GameManager : MonoBehaviour
 
         if (firstCard.idx == secondCard.idx)
         {
-            nameTxt.text = match_success[Random.Range(0, match_success.Length)];
+            if (stage == 1)
+                nameTxt.text = stage_1[firstCard.idx];
+            else if (stage == 2)
+                nameTxt.text = stage_2[firstCard.idx];
+            else if (stage == 3)
+                nameTxt.text = stage_3[firstCard.idx];
+            else if (stage == 4)
+                nameTxt.text = stage_4[firstCard.idx];
 
             audioSource.PlayOneShot(clip);
             firstCard.DestroyCard();
@@ -146,14 +167,10 @@ public class GameManager : MonoBehaviour
             if (cardCount == 0)
             {
                 Time.timeScale = 0.0f;
-                profilePanel.SetActive(true);
-                // GameOver();
-                //Time.timeScale = 0.0f;
-                //endPanel.SetActive(true);
-                //EndPanel();
+                On_Panel();
                 audioSource.PlayOneShot(finish);
             }
-            else // 맞추면 보너스 시간 +0.2초
+            else // 맞추면 보너스 시간 +1초
             {
                 timer_anim.SetTrigger("PlayIncrease");
                 time += 1.0f;
@@ -169,8 +186,6 @@ public class GameManager : MonoBehaviour
             firstCard.CloseCard();
             secondCard.CloseCard();
         }
-        //firstCard = null;
-        //secondCard = null;
     }
     void Calculate_Score()
     {
@@ -301,11 +316,6 @@ public class GameManager : MonoBehaviour
         Score = time_score + match_cnt_score + match_score;
     }
 
-    public void onEndpanel()
-    {
-        endPanel.SetActive(true);
-        profilePanel.SetActive(false);
-    }
     void EndPanel()
     {
         BestScoreTxt.text = Score.ToString("N2");
@@ -349,11 +359,13 @@ public class GameManager : MonoBehaviour
         }
 
         //ENDPANEL 이름 변경
-        if (cardCount == 0) { 
+        if (cardCount == 0)
+        {
             EndpanelTitle.text = "CLEAR";
             Comment.text = "NICE PLAY!";
         }
-        else { 
+        else
+        {
             EndpanelTitle.text = "GAME OVER";
             Comment.text = "좀 더 노력하세요.";
         }

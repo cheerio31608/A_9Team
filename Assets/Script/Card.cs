@@ -6,8 +6,8 @@ public class Card : MonoBehaviour
 {
     public static Card Instance;
 
-    public int idx = 0;
-    public int id = 0;
+    public int idx = 0; // 카드 인덱스
+    public int id = 0; // 인스턴스 ID
 
     public SpriteRenderer frontImage;
     public SpriteRenderer background; // 카드의 뒷면 (색상 변경을 위해서)
@@ -27,7 +27,7 @@ public class Card : MonoBehaviour
         Instance = this;
     }
 
-    // Start is called before the first frame update
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -42,9 +42,8 @@ public class Card : MonoBehaviour
         idx = number;
         id = GetInstanceID();
 
-        string objectName = gameObject.name; // ���� ������Ʈ �̸��� �޾ƿͼ� Ȯ���Ұſ���
+        string objectName = gameObject.name;
 
-        //Debug.Log(objectName);
 
         if (objectName == "Card1 MW(Clone)") // 만약 오브젝트 이름이 MW 라면
         {
@@ -72,14 +71,10 @@ public class Card : MonoBehaviour
 
     public void OpenCard()
     {
-        if(GameManager.Instance.secondCard != null || time_started == false)
-            return;
-        
-
-        if (GameManager.Instance.firstCard != null && GameManager.Instance.firstCard.id == id)
+        if (GameManager.Instance.secondCard != null || time_started == false) // 카드 준비 중 Open 금지
             return;
 
-        if (GameManager.Instance.firstCard != null && GameManager.Instance.firstCard.id == id)
+        if (GameManager.Instance.firstCard != null && GameManager.Instance.firstCard.id == id) // 카드 중복 선택 방지
             return;
 
         audioSource.PlayOneShot(clip);
@@ -143,11 +138,11 @@ public class Card : MonoBehaviour
         GameManager.Instance.firstCard = null;
         GameManager.Instance.secondCard = null;
         anim.SetBool("isOpen", false);
+
         if (!matched_fail)
         {
             matched_fail = true;
             background.color = new Color(135 / 255f, 135 / 255f, 135 / 255f, 1f);
         }
-
     }
 }
