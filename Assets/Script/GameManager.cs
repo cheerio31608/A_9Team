@@ -337,7 +337,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            PlayerPrefs.SetFloat(stage_skey, time);
+            PlayerPrefs.SetFloat(stage_key, time);
             bestTimeTxt.text = time.ToString("N2");
         }
         // 최고점수 판단
